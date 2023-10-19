@@ -8,6 +8,8 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyCart from "../Pages/MyCart/MyCart";
 import NoDataPage from "../Pages/NoDataPage/NoDataPage";
+import AppleData from "../Pages/AppleData/AppleData";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
     {
@@ -62,6 +64,16 @@ const router = createBrowserRouter([
             {
                 path: '/nodata',
                 element: <NoDataPage></NoDataPage>
+            },
+            {
+                path: '/appleData',
+                element: <AppleData></AppleData>,
+                loader: () => fetch('http://localhost:5001/addProduct')
+            },
+            {
+                path: '/updateProduct/:id',
+                element: <UpdateProduct></UpdateProduct>,
+                loader: ({params}) => fetch(`http://localhost:5001/addProduct/${params.id}`)
             }
         ]
     }
