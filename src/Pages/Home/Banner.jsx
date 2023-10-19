@@ -14,7 +14,7 @@ const Banner = () => {
               <p>
               Empowering You to Explore the Boundless Horizons of -
                 <br />
-                <span className="font-semibold">
+                <span className="font-semibold text-white">
                 Technology and Innovation.
                 </span>
               </p>
