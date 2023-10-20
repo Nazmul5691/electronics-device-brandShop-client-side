@@ -13,6 +13,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import ProductsData from "../Pages/ProductsData/ProductsData";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addProducts',
-                element: <AddProducts></AddProducts>
+                element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>
             },
             {
                 path: '/brands',
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myCart',
-                element: <MyCart></MyCart>
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
             },
             {
                 path: '/nodata',
@@ -75,13 +76,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/updateProduct/:id',
-                element: <UpdateProduct></UpdateProduct>,
+                element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5001/addProduct/${params.id}`)
             },
             {
                 path: '/viewDetails/:id',
-                element: <ViewDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5173/productsData/${params.id}`)
+                element: <ViewDetails></ViewDetails>,
+                loader: ({params}) => fetch(`http://localhost:5001/viewDetails/${params.id}`)
+
+                
             }
               
             

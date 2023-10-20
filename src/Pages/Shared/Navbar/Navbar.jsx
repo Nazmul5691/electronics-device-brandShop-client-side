@@ -88,34 +88,38 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-  {user ? (
-    <>
-      <div className="gap-1 m-2">
-              <p>{user?.displayName}</p>
-      </div>
-      <div className="gap-1 m-2">
-        <img className="w-10 rounded-full" src={user.photoURL} alt="" />
-      </div>
-      <div className="gap-1 m-2">
-        <button className="btn btn-primary" onClick={handleLogout}>
-          Logout
-        </button>
-      </div>
-    </>
-  ) : (
-    <Link to="/signIn">
-      <button className="btn btn-primary">Login</button>
-    </Link>
-  )}
-</div>
+      
+      <NavLink className="font-bold mr-3 bg-slate-400 py-3 px-3 rounded-md hover:bg-slate-300"  to='/myCart'>My Cart
+      </NavLink>
+        {user ? (
+          <>
+            
+            <div className="gap-1 m-2">
+                    <p>{user?.displayName}</p>
+            </div>
+            <div className="gap-1 m-2">
+              <img className="w-10 rounded-full" src={user.photoURL} alt="" />
+            </div>
+            <div className="gap-1 m-2">
+              <button className="btn btn-primary" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          </>
+        ) : (
+          <Link to="/signIn">
+            <button className="btn btn-primary">Login</button>
+          </Link>
+        )}
     </div>
-  );
+        </div>
+      );
 };
 
 export default Navbar;
 
 
-{/* <NavLink className="font-bold mr-3 bg-slate-400 py-3 px-3 rounded-md hover:bg-slate-300"  to='/myCart'>My Cart</NavLink> */}
+
 
 
 // {
