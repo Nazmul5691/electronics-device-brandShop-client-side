@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { NavLink, Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import '../../../assets/CSS/style.css'
+
 
 
 const Navbar = () => {
@@ -8,14 +11,49 @@ const Navbar = () => {
 
   
   
+  // 1. Add dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(getInitialDarkModeValue());
+
+  
+  function getInitialDarkModeValue() {
+    const storedValue = localStorage.getItem("darkMode");
+    return storedValue === "true"; 
+  }
+
+  
+const toggleDarkMode = () => {
+  setIsDarkMode(!isDarkMode);
+  localStorage.setItem("darkMode", !isDarkMode);
+
+  
+  if (isDarkMode) {
+    document.body.classList.add("dark");
+    document.body.classList.add("text-black"); // Add a class to change text color to black
+  } else {
+    document.body.classList.remove("dark");
+    document.body.classList.remove("text-black"); // Remove the text color class
+  }
+};
+
+
+  
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
+
+
 
   const handleLogout = () => {
     logOut()
       .then(() => {
-        // Handle successful logout, if needed
+        
       })
       .catch((error) => {
-        // Handle logout error, if needed
+        
         console.error("Logout error", error);
       });
   };
@@ -51,7 +89,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-200 px-10 sticky top-0 z-10">
+    <div className={`navbar bg-base-200 md:px-10 sticky top-0 z-10 ${isDarkMode ? "dark" : ""}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -78,7 +116,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img
-          className="w-[45px] h-[45px] rounded-full mr-2"
+          className="w-[45px] h-[45px] rounded-full mr-2 hidden md:block"
           src="https://i.ibb.co/nQm1XyJ/techlogo.jpg"
           alt=""
         />
@@ -111,6 +149,18 @@ const Navbar = () => {
             <button className="btn btn-primary">Login</button>
           </Link>
         )}
+       <button onClick={toggleDarkMode}>
+          {isDarkMode ? (
+            <span>
+              <span className="feather-icon" data-feather="sun"></span> Light Mode
+            </span>
+          ) : (
+            <span>
+              <span className="feather-icon" data-feather="moon"></span> Dark Mode
+            </span>
+          )}
+        </button>
+        
     </div>
         </div>
       );
@@ -120,13 +170,3 @@ export default Navbar;
 
 
 
-
-
-// {
-//   user ? 
-//   <button onClick={handleSignOut} className="btn bg-base-100 hover:bg-slate-500 hover:text-white">Sign out</button>   
-//   :
-//   <Link to='/login'>
-//       <button className="btn bg-base-100 hover:bg-slate-500 hover:text-white">Login</button>   
-//   </Link>
-// } */}

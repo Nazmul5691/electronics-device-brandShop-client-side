@@ -5,7 +5,7 @@ const ProductsData = () => {
   const allProducts = useLoaderData();
 
   return (
-    <div className="m-20">
+    <div className="md:m-20 m-8">
 
         <div className="grid grid-cols-1">
         {

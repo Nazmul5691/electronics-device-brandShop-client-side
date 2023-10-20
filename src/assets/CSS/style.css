@@ -1,0 +1,22 @@
+.dark {
+    background-color: #333; 
+    color: #fff;
+  }
+
+.dark .navbar {
+    color: #000000; 
+}
+  
+.dark-text {
+    color: #fff;
+}
+
+/* Dark Theme Styles */
+body.dark {
+    background-color: #333; /* Dark background */
+}
+
+/* Set text color to black in dark mode */
+body.dark.text-black {
+    color: #000;
+}
