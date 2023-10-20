@@ -2,7 +2,7 @@ import  { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const AddProducts = () => {
-  const [selectedRating, setSelectedRating] = useState(3);
+  const [selectedRating, setSelectedRating] = useState(1);
 
   const handleAddProducts = (event) => {
     event.preventDefault();
