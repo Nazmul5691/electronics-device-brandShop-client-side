@@ -1,8 +1,15 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
 
-const ProductCard = ({ product }) => {
+import { Link, useLoaderData } from "react-router-dom";
+
+
+
+const ViewDetails = () => {
+
+    
+    const product = useLoaderData()
+
     const { _id, name, quantity, type, price, brandsName, details, rating, photo } = product;
 
     return (
@@ -17,15 +24,15 @@ const ProductCard = ({ product }) => {
                 <h2>Price : {price}</h2>
                 <h2>Rating : {rating}</h2>
                 <p className="text-lg">{details}</p>
-                <Link to={`/viewDetails/${_id}`}>
-                    <button className="btn btn-primary w-[153px]">View Details</button>
+
+                <Link to={'/myCart'}>
+                    <button className="btn btn-primary">Add To Cart</button>
                 </Link>
-                <Link to={`/updateProduct/${_id}`}>
-                    <button className="btn btn-primary">Update Product</button>
-                </Link>
+                
             </div>
+
         </div>
     );
 };
 
-export default ProductCard;
+export default ViewDetails;

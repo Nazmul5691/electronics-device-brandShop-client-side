@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 
-const AppleData = () => {
+const ProductsData = () => {
   const allProducts = useLoaderData();
 
   return (
@@ -16,4 +16,4 @@ const AppleData = () => {
   );
 };
 
-export default AppleData;
+export default ProductsData;

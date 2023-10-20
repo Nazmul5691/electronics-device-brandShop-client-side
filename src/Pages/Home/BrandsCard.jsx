@@ -4,7 +4,7 @@
 const BrandsCard = ({brand}) => {
     const { brandName, image} = brand;
     return (
-      <div className="mt-10">
+      <div className="mt-10 hover:cursor-pointer">
         <div className=" border-1 h-[350px] gap-4 bg-slate-200 rounded-md">
           <div>
             <img className="w-full h-[280px] rounded-md" src={image} alt="" />

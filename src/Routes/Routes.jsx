@@ -8,8 +8,11 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyCart from "../Pages/MyCart/MyCart";
 import NoDataPage from "../Pages/NoDataPage/NoDataPage";
-import AppleData from "../Pages/AppleData/AppleData";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
+import ProductsData from "../Pages/ProductsData/ProductsData";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,12 +31,12 @@ const router = createBrowserRouter([
                 // loader: () => fetch('/services.json')
             },
             {
-                // path: '/login',
-                // element: <Login></Login>
+                path: '/signIn',
+                element: <SignIn></SignIn>
             },
             {
-                // path: '/register',
-                // element: <Register></Register>
+                path: '/signUp',
+                element: <SignUp></SignUp>
             },
             {
                 path: '/addProducts',
@@ -66,15 +69,22 @@ const router = createBrowserRouter([
                 element: <NoDataPage></NoDataPage>
             },
             {
-                path: '/appleData',
-                element: <AppleData></AppleData>,
+                path: '/productsData',
+                element: <ProductsData></ProductsData>,
                 loader: () => fetch('http://localhost:5001/addProduct')
             },
             {
                 path: '/updateProduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
                 loader: ({params}) => fetch(`http://localhost:5001/addProduct/${params.id}`)
+            },
+            {
+                path: '/viewDetails/:id',
+                element: <ViewDetails />,
+                loader: ({ params }) => fetch(`http://localhost:5173/productsData/${params.id}`)
             }
+              
+            
         ]
     }
 ]);
