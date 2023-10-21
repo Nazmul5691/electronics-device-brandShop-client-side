@@ -20,7 +20,7 @@ const AddProducts = () => {
     console.log(newProduct);
 
     //send data to the server
-    fetch('https://brand-shop-server-lake.vercel.app/addProduct', {
+    fetch('https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/addProduct', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

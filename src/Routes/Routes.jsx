@@ -62,17 +62,17 @@ const router = createBrowserRouter([
             {
                 path: '/productsData/:brandsName',
                 element: <ProductsData></ProductsData>,
-                // loader: ({ params }) => fetch(`https://brand-shop-server-lake.vercel.app/productsData/${params.brandsName}`)
+                // loader: ({ params }) => fetch(`https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/productsData/${params.brandsName}`)
             },
             {
                 path: '/updateProduct/:id',
                 element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-                loader: ({params}) => fetch(`https://brand-shop-server-lake.vercel.app/addProduct/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/addProduct/${params.id}`)
             },
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`https://brand-shop-server-lake.vercel.app/productData/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/productData/${params.id}`)
    
             },
 

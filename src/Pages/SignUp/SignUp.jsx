@@ -33,7 +33,7 @@ const SignUp = () => {
         const user = {name, email, createdAt: createdAt };
 
         // Send user data to your server (Assuming you have a server)
-        fetch('https://brand-shop-server-lake.vercel.app/user', {
+        fetch('https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/user', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
