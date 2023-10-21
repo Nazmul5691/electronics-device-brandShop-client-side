@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 import Banner from "./Banner";
 import BrandsCard from "./BrandsCard";
@@ -8,9 +8,11 @@ const Home = () => {
     const brands = useLoaderData();
     const navigate = useNavigate();
 
-    const handleCardClick = (brand) => {
-        navigate('/productsData');
-    };
+    // const handleCardClick = (brand) => {
+    //     const brandsName = brand.brandsName;
+    //     console.log('brandsName:', brandsName); 
+    //     navigate(`/productsData/${brandsName}`);
+    // };
 
     return (
         <div>
@@ -27,8 +29,8 @@ const Home = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 mb-16 gap-4">
                     {brands.map((brand) => (
-                        <div key={brand.id} onClick={() => handleCardClick(brand)}>
-                            <BrandsCard brand={brand}></BrandsCard>
+                        <div  key={brand.id} >
+                            <Link to={`/productsData/${brand.brandsName}`}><BrandsCard brand={brand}></BrandsCard></Link>
                         </div>
                     ))}
                 </div>

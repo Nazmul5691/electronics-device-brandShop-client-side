@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import Root from "../Layouts/Root";
 import AboutUs from "../Pages/AboutUs/AboutUs";
-import Brands from "../Pages/Brands/Brands";
 import AddProducts from "../Pages/AddProducts/AddProducts";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
@@ -14,6 +13,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import ProductsData from "../Pages/ProductsData/ProductsData";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
+
 
 const router = createBrowserRouter([
     {
@@ -44,11 +44,6 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><AddProducts></AddProducts></PrivateRoute>
             },
             {
-                path: '/brands',
-                element: <Brands></Brands>,
-                loader : () => fetch('/brands.json')
-            },
-            {
                 path: '/about',
                 element: <AboutUs></AboutUs>
             },
@@ -65,9 +60,9 @@ const router = createBrowserRouter([
                 element: <NoDataPage></NoDataPage>
             },
             {
-                path: '/productsData',
+                path: '/productsData/:brandsName',
                 element: <ProductsData></ProductsData>,
-                loader: () => fetch('http://localhost:5001/addProduct')
+                // loader: ({ params }) => fetch(`http://localhost:5001/productsData/${params.brandsName}`)
             },
             {
                 path: '/updateProduct/:id',
@@ -77,10 +72,16 @@ const router = createBrowserRouter([
             {
                 path: '/viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5001/viewDetails/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5001/productData/${params.id}`)
+   
+            },
 
-                
-            }
+
+            // {
+            //     path: '/productsData/:brandsName',
+            //     element: <ProductsData />
+            //     // ...
+            // }
               
             
         ]

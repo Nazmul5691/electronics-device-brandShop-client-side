@@ -66,13 +66,13 @@ const toggleDarkMode = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink className="font-bold" to="/brands">
-          All Brands
+        <NavLink className="font-bold" to="/addProducts">
+          Add Products
         </NavLink>
       </li>
       <li>
-        <NavLink className="font-bold" to="/addProducts">
-          Add Products
+        <NavLink className="font-bold" to="/myCart">
+        My Cart
         </NavLink>
       </li>
       <li>
@@ -127,8 +127,7 @@ const toggleDarkMode = () => {
       </div>
       <div className="navbar-end">
       
-      <NavLink className="font-bold mr-3 bg-slate-400 py-3 px-3 rounded-md hover:bg-slate-300"  to='/myCart'>My Cart
-      </NavLink>
+     
         {user ? (
           <>
             
