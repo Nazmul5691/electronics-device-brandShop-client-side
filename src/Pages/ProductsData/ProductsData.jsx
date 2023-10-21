@@ -12,7 +12,7 @@ const ProductsData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/productsData/${brandsName}`);
+                const response = await fetch(`https://brand-shop-server-lake.vercel.app/productsData/${brandsName}`);
                 if (response.ok) {
                     const data = await response.json();
                     
@@ -30,7 +30,7 @@ const ProductsData = () => {
         <div>
 
             <h2 className="text-center text-4xl my-5">Products of {brandsName}</h2>
-            {/*  */}
+            
         <div className="carousel w-full my-10">
       <div id="slide1" className="carousel-item relative w-full">
         <img src="https://i.ibb.co/gRwwBh9/s1.jpg" className="w-full h-[350px]" />
@@ -61,7 +61,7 @@ const ProductsData = () => {
         </div>
       </div>
     </div>
-    
+   
     {/*  */}
             {
               products.length > 0  ? (

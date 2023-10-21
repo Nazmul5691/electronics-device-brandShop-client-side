@@ -7,6 +7,8 @@ const ProductCard = ({ product }) => {
 
     return (
 
+
+
         <div className="card lg:card-side bg-base-100 md:h-[400px] my-8 shadow-xl">
              <figure><img className="h-full w-[550px]" src={photo} alt="" /></figure>
         
