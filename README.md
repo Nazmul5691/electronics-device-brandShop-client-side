@@ -15,7 +15,7 @@
 
 ## Get Started
 
-Visit our website at [techTrends.com]() to discover an exciting world of technology and electronics.
+Visit our website at [techTrends.com](https://brand-shop-41efc.firebaseapp.com/) to discover an exciting world of technology and electronics.
 
 
 
